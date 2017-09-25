@@ -158,7 +158,7 @@
                                                   <div class="col-md-3">
                                                        <div class="radio">
                                                             <label><input type="radio" name="optradio<%=i%>" value="1">Option 1</label>
-                                                       </div>
+                                                       </div>       jbnnm, ,m
                                                   </div>
                                                   <div class="col-md-3">
                                                        <div class="radio">
