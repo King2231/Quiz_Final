@@ -105,23 +105,24 @@
           <hr>
           <main>
                <div class="container-fluid">
-                    <div class="row"> 
-                         <div class="col-md-1"></div>
-                         <div class="col-md-10 card-block lighten-5 blue-grey blue-grey-text">
+                    <div class="row">
+                         <div class="col-md-10 card-block lighten-5 blue-grey blue-grey-text offset-md-1">
                               <div class="row jumbotron lighten-4 blue-grey blue-grey-text">
                                    <h3>Enter Questions</h3>
                               </div>
-                              <form name="Aexam" method="POST" class="form-group col-form-legend" action="Action_Jsp\Question_Action.jsp">
-                                   <input type="hidden" name="ex_id" value="<%=ed.getEx_id()%>"
-                                   <%
-                                        for(int i=1;i<=ed.getNoofq();i++){
-                                   %>
-                                   <div class="row">
-                                        <div class="col-md-3">
-                                             <button type="button" data-toggle="collapse" data-target="#demo<%=i%>" class="btn-link">Cick To Add Question <%=i%> </button> 
-                                        </div>
-                                   </div>
-                                   <div id="demo<%=i%>" class="row collapse">
+                              <div class="row">
+                                   <div class="col-md-12">
+                                        <form name="Aexam" method="POST" class="form-group col-form-legend" action="Action_Jsp\Question_Action.jsp">
+                                             <input type="hidden" name="ex_id" value="<%=ed.getEx_id()%>">
+                                             <%
+                                                  for(int i=1;i<=ed.getNoofq();i++){
+                                             %>
+                                             <div class="row">
+                                                  <div class="col-md-3">
+                                                       <button type="button" data-toggle="collapse" data-target="#demo<%=i%>" class="btn-link">Cick To Add Question <%=i%> </button>
+                                                  </div>
+                                             </div>
+                                                                                <div id="demo<%=i%>" class="row collapse">
                                         <div class="col-md-12">
                                              <div class="row">
                                                   <div class="form-group col-md-12 ">
@@ -144,11 +145,7 @@
                                                        <input type="text" name="optn4<%=i%>" required="" placeholder="Option 4">
                                                   </div> 
                                              </div>
-                                             <div class="row">
-                                                  <div class="col-md-3">
-                                                       <input type="number" step="1" name="marks<%=i%>" required="" placeholder="Option 4">
-                                                  </div>
-                                             </div>
+                                             
                                              <div class="row">
                                              <div class="col-md-12">
                                                   Select Correct Option
@@ -182,10 +179,15 @@
                                         }
                                    %>
                                    <center><button type="submit" name="submit" value="add" class="btn btn-default blue-grey"> Submit </button></center>
-                              </form> 
+                              
+                                        </form>
+                                   </div>
+                              </div>
                          </div>
                     </div>
                </div>
+               
           </main>
-    </body>
-</html>
+    </body></html>
+
+                         

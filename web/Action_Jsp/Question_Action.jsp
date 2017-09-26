@@ -51,14 +51,18 @@
                     
                     try{
                          String res=Questions_Worker.AddQuestion(qd);
-                         if(res.equalsIgnoreCase("Success"))
+                         if(res.equalsIgnoreCase("Success")){
                               session.setAttribute("err","All Questions Added");
+                              //response.sendRedirect("../ShowQuestions.jsp?id="+ed.getEx_id());
+                         }
+                              
                     }
                     catch(Exception e){
-                         
-                    }
-                    
+                          session.setAttribute("err","There Were Some Errors Adding Questions");
+                         //response.sendRedirect("../ShowQuestions.jsp?id="+ed.getEx_id());
+                    } 
                }
+               response.sendRedirect("../ShowQuestions.jsp?id="+ed.getEx_id());
           %>
      </body>
 </html>
