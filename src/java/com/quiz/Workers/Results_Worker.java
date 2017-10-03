@@ -21,7 +21,7 @@ public class Results_Worker {
     public static String addResult(Results_Dt rd){
         String result="";
         try{
-            String query="insert into result(std_id,exam_id,date,sub_id,status) values(?,?,?,?,?);";
+            String query="insert into result(std_id,exam_id,date,status) values(?,?,?,?);";
             PreparedStatement pstmt=DatabaseConnector.getPreparedStatement(query);
             pstmt.setInt(1,rd.getStd_id());
             pstmt.setInt(2, rd.getEx_id());
@@ -50,7 +50,7 @@ public class Results_Worker {
     public static String updateResult(Results_Dt rd){
         String result="";
         try{
-            String query="update result set std_id=?,exam_id=?,date=?,score=?,sub_id=? where res_id=?";
+            String query="update result set std_id=?,exam_id=?,date=?,score=? where res_id=?";
             PreparedStatement pstmt=DatabaseConnector.getPreparedStatement(query);
             pstmt.setInt(1,rd.getStd_id());
             pstmt.setInt(2,rd.getEx_id());
@@ -122,7 +122,6 @@ public class Results_Worker {
             rd.setEx_id(rs.getInt(3));
             rd.setDate(rs.getString(4));
             rd.setScore(rs.getDouble(5));
-            rd.setSub_id(rs.getInt(6));
         }
         catch(Exception e){
             e.printStackTrace();
@@ -144,8 +143,7 @@ public class Results_Worker {
             rd.setStd_id(rs.getInt(2));
             rd.setEx_id(rs.getInt(3));
             rd.setDate(rs.getString(4));
-            rd.setScore(rs.getDouble(5));
-            rd.setSub_id(rs.getInt(6)); 
+            rd.setScore(rs.getDouble(5)); 
             list.add(rd);
             rd=null;
           }  

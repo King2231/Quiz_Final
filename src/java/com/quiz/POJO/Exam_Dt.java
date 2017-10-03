@@ -21,8 +21,6 @@ String ex_co,ex_sem,ex_pwd,ex_date,ex_duration;
      public void setNoofq(int noofq) {
           this.noofq = noofq;
      }
-   
-
      public String getEx_date() {
           return ex_date;
      }
