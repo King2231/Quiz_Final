@@ -27,7 +27,7 @@ public class Results_Worker {
             pstmt.setInt(2, rd.getEx_id());
             pstmt.setString(3,rd.getDate());
             //pstmt.setDouble(4,rd.getScore());
-            pstmt.setInt(4,rd.getSub_id());
+            //pstmt.setInt(4,rd.getSub_id());
             pstmt.setInt(5,0);
             
             int i=pstmt.executeUpdate();
@@ -56,7 +56,7 @@ public class Results_Worker {
             pstmt.setInt(2,rd.getEx_id());
             pstmt.setString(3,rd.getDate());
             pstmt.setDouble(4,rd.getScore());
-            pstmt.setInt(5,rd.getSub_id());
+            //pstmt.setInt(5,rd.getSub_id());
             int i=pstmt.executeUpdate();
             if(i==1){
                 result=Results.SUCCESS;

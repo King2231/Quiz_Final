@@ -43,7 +43,6 @@ public class Subject_Worker {
          }
        return result; 
     }
-
 //Update Subject
     public static String updateSubject(Subject_Dt sd){
         String result="";
