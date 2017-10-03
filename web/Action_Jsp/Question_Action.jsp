@@ -13,14 +13,15 @@
 <html>
      <head>
           <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-          <title>JSP Page</title>
+          <title>Question_Action</title>
      </head>
      <body>
           <%
                int ex_id=Integer.parseInt(request.getParameter("ex_id"));
                Exam_Dt ed=Exam_Worker.showExamById(ex_id);
                Questions_Dt qd=null;
-               for(int i=1;i<=ed.getNoofq();i++){
+               int noofq=Integer.parseInt(request.getParameter("noofq"));
+               for(int i=1;i<=noofq;i++){
                     qd=new Questions_Dt();
                     qd.setEx_id(ex_id);
                     qd.setQ_no(i);
@@ -44,7 +45,7 @@
                               qd.setCorrect(qd.getOptn4());
                               break;
                     }
-                    if(request.getParameter("marks"+Integer.toString(i))!="")
+                    if(request.getParameter("marks"+Integer.toString(i))!=null)
                          qd.setQ_marks(Integer.parseInt(request.getParameter("marks"+Integer.toString(i))));
                     else
                          qd.setQ_marks(1);

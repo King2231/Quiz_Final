@@ -21,7 +21,7 @@ public class Questions_Worker {
     public static String AddQuestion(Questions_Dt qd){
         String result="";
         try{
-            String query="insert into questions(q_no,question,optn1,optn2,optn3,optn4,correct,exam_id,q_marks) values(?,?,?,?,?,?,?,?,?,)";
+            String query="insert into questions(q_no,question,optn1,optn2,optn3,optn4,correct,exam_id,q_marks) values(?,?,?,?,?,?,?,?,?);";
             PreparedStatement pstmt=DatabaseConnector.getPreparedStatement(query);
             pstmt.setInt(1,qd.getQ_no());
             pstmt.setString(2,qd.getQuestion());

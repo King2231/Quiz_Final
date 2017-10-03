@@ -21,14 +21,12 @@ public class Results_Worker {
     public static String addResult(Results_Dt rd){
         String result="";
         try{
-            String query="insert into result(std_id,exam_id,date,status) values(?,?,?,?);";
+            String query="insert into result(std_id,exam_id,res_date,status) values(?,?,?,?);";
             PreparedStatement pstmt=DatabaseConnector.getPreparedStatement(query);
             pstmt.setInt(1,rd.getStd_id());
             pstmt.setInt(2, rd.getEx_id());
             pstmt.setString(3,rd.getRes_date());
-            //pstmt.setDouble(4,rd.getScore());
-            //pstmt.setInt(4,rd.getSub_id());
-            pstmt.setInt(5,0);
+            pstmt.setInt(4,0);
             
             int i=pstmt.executeUpdate();
             if(i==1){
@@ -50,7 +48,7 @@ public class Results_Worker {
     public static String updateResult(Results_Dt rd){
         String result="";
         try{
-            String query="update result set std_id=?,exam_id=?,date=?,score=? where res_id=?";
+            String query="update result set std_id=?,exam_id=?,res_date=?,score=? where res_id=?";
             PreparedStatement pstmt=DatabaseConnector.getPreparedStatement(query);
             pstmt.setInt(1,rd.getStd_id());
             pstmt.setInt(2,rd.getEx_id());

@@ -69,8 +69,9 @@
 </head>
     <body>
         <%
-             //int ex_id=Integer.parseInt(request.getParameter("id"));
-             Exam_Dt ed=Exam_Worker.showExamById(1);
+             int ex_id=Integer.parseInt(request.getParameter("id"));
+             Exam_Dt ed=Exam_Worker.showExamById(ex_id);
+             
              
         %>
         <header>
@@ -114,6 +115,7 @@
                                    <div class="col-md-12">
                                         <form name="Aexam" method="POST" class="form-group col-form-legend" action="Action_Jsp\Question_Action.jsp">
                                              <input type="hidden" name="ex_id" value="<%=ed.getEx_id()%>">
+                                             <input type="hidden" name="noofq" value="<%=ed.getNoofq()%>">
                                              <%
                                                   for(int i=1;i<=ed.getNoofq();i++){
                                              %>
@@ -122,72 +124,70 @@
                                                        <button type="button" data-toggle="collapse" data-target="#demo<%=i%>" class="btn-link">Cick To Add Question <%=i%> </button>
                                                   </div>
                                              </div>
-                                                                                <div id="demo<%=i%>" class="row collapse">
-                                        <div class="col-md-12">
-                                             <div class="row">
-                                                  <div class="form-group col-md-12 ">
-                                                       
-                                                       <label for="comment">Enter Question<%=i%></label>
-                                                       <textarea class="form-control" rows="5" id="<%=i%>" required="" name="q<%=i%>"></textarea>
-                                                  </div> 
-                                             </div>
-                                             <div class="row">
-                                                  <div class="form-group col-md-3 ">
-                                                       <input type="text" name="optn1<%=i%>" required="" placeholder="Option 1">
-                                                  </div>
-                                                  <div class="form-group col-md-3 ">
-                                                       <input type="text" name="optn2<%=i%>" required="" placeholder="Option 2">
-                                                  </div> 
-                                                  <div class="form-group col-md-3 ">
-                                                       <input type="text" name="optn3<%=i%>" required="" placeholder="Option 3">
-                                                  </div> 
-                                                  <div class="form-group col-md-3 ">
-                                                       <input type="text" name="optn4<%=i%>" required="" placeholder="Option 4">
-                                                  </div> 
-                                             </div>
-                                             
-                                             <div class="row">
-                                             <div class="col-md-12">
-                                                  Select Correct Option
-                                             </div>
-                                             </div>
-                                             <div class="row">
-                                                  <div class="col-md-3">
-                                                       <div class="radio">
-                                                            <label><input type="radio" name="optradio<%=i%>" value="1">Option 1</label>
+                                             <div id="demo<%=i%>" class="row collapse">
+                                                  <div class="col-md-12">
+                                                       <div class="row">
+                                                            <div class="form-group col-md-12 ">
+
+                                                                 <label for="comment">Enter Question<%=i%></label>
+                                                                 <textarea class="form-control" rows="5" id="<%=i%>" required="" name="q<%=i%>"></textarea>
+                                                            </div> 
+                                                       </div>
+                                                       <div class="row">
+                                                            <div class="form-group col-md-3 ">
+                                                                 <input type="text" name="optn1<%=i%>" required="" placeholder="Option 1">
+                                                            </div>
+                                                            <div class="form-group col-md-3 ">
+                                                                 <input type="text" name="optn2<%=i%>" required="" placeholder="Option 2">
+                                                            </div> 
+                                                            <div class="form-group col-md-3 ">
+                                                                 <input type="text" name="optn3<%=i%>" required="" placeholder="Option 3">
+                                                            </div> 
+                                                            <div class="form-group col-md-3 ">
+                                                                 <input type="text" name="optn4<%=i%>" required="" placeholder="Option 4">
+                                                            </div> 
+                                                       </div>
+                                                       <div class="row">
+                                                            <div class="col-md-12">
+                                                                 Select Correct Option
+                                                            </div>
+                                                       </div>
+                                                       <div class="row">
+                                                            <div class="col-md-3">
+                                                                 <div class="radio">
+                                                                      <label><input type="radio" name="optradio<%=i%>" value="1">Option 1</label>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                 <div class="radio">
+                                                                      <label><input type="radio" name="optradio<%=i%>" value="2">Option 2</label>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                 <div class="radio">
+                                                                      <label><input type="radio" name="optradio<%=i%>" value="3">Option 3</label>
+                                                                 </div>
+                                                            </div>
+                                                            <div class="col-md-3">
+                                                                 <div class="radio">
+                                                                      <label><input type="radio" name="optradio<%=i%>" value="4">Option 4</label>
+                                                                 </div>
+                                                            </div>
                                                        </div>
                                                   </div>
-                                                  <div class="col-md-3">
-                                                       <div class="radio">
-                                                            <label><input type="radio" name="optradio<%=i%>" value="2">Option 2</label>
-                                                       </div>
-                                                  </div>
-                                                  <div class="col-md-3">
-                                                       <div class="radio">
-                                                            <label><input type="radio" name="optradio<%=i%>" value="3">Option 3</label>
-                                                       </div>
-                                                  </div>
-                                                  <div class="col-md-3">
-                                                       <div class="radio">
-                                                            <label><input type="radio" name="optradio<%=i%>" value="4">Option 4</label>
-                                                       </div>
-                                                  </div>
                                              </div>
-                                        </div>
-                                   </div>
-                                   <%
-                                        }
-                                   %>
-                                   <center><button type="submit" name="submit" value="add" class="btn btn-default blue-grey"> Submit </button></center>
-                              
+                                             <%
+                                                  }
+                                             %>
+                                             <center><button type="submit" name="submit" value="add" class="btn btn-default blue-grey"> Submit </button></center>
                                         </form>
                                    </div>
                               </div>
                          </div>
                     </div>
                </div>
-               
           </main>
-    </body></html>
+    </body>
+</html>
 
                          
