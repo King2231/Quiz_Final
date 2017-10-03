@@ -69,12 +69,13 @@
                                         Results_Dt rd=new Results_Dt();
                                              rd.setEx_id(Exam_Worker.getMaxExId());
                                         //rd.setDate(ed.getEx_date());
-                                             rd.setSub_id(ed.getSub_id());
+                                        //rd.setSub_id(ed.getSub_id());
                                         ArrayList<Student_Dt> slist=Student_Worker.showAllStudentsBySem(ed.getEx_sem());
                                         for(Student_Dt sdt:slist){
                                              rd.setStd_id(sdt.getStd_id());
                                              //rd.setEx_id(Exam_Worker.getMaxExId());
-                                             rd.setDate(ed.getEx_date());
+                                             rd.setRes_date(ed.getEx_date());
+                                             rd.setStatus(0);
                                              result=Results_Worker.addResult(rd);
                                         }
                                    }

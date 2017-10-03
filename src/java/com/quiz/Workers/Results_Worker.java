@@ -25,7 +25,7 @@ public class Results_Worker {
             PreparedStatement pstmt=DatabaseConnector.getPreparedStatement(query);
             pstmt.setInt(1,rd.getStd_id());
             pstmt.setInt(2, rd.getEx_id());
-            pstmt.setString(3,rd.getDate());
+            pstmt.setString(3,rd.getRes_date());
             //pstmt.setDouble(4,rd.getScore());
             //pstmt.setInt(4,rd.getSub_id());
             pstmt.setInt(5,0);
@@ -54,7 +54,7 @@ public class Results_Worker {
             PreparedStatement pstmt=DatabaseConnector.getPreparedStatement(query);
             pstmt.setInt(1,rd.getStd_id());
             pstmt.setInt(2,rd.getEx_id());
-            pstmt.setString(3,rd.getDate());
+            pstmt.setString(3,rd.getRes_date());
             pstmt.setDouble(4,rd.getScore());
             //pstmt.setInt(5,rd.getSub_id());
             int i=pstmt.executeUpdate();
@@ -120,7 +120,7 @@ public class Results_Worker {
             rd.setRes_id(rs.getInt(1));
             rd.setStd_id(rs.getInt(2));
             rd.setEx_id(rs.getInt(3));
-            rd.setDate(rs.getString(4));
+            rd.setRes_date(rs.getString(4));
             rd.setScore(rs.getDouble(5));
         }
         catch(Exception e){
@@ -142,7 +142,7 @@ public class Results_Worker {
             rd.setRes_id(rs.getInt(1));
             rd.setStd_id(rs.getInt(2));
             rd.setEx_id(rs.getInt(3));
-            rd.setDate(rs.getString(4));
+            rd.setRes_date(rs.getString(4));
             rd.setScore(rs.getDouble(5)); 
             list.add(rd);
             rd=null;

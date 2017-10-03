@@ -10,9 +10,17 @@ package com.quiz.POJO;
  * @author King
  */
 public class Results_Dt {
-   int res_id,std_id,ex_id,sub_id,status;
+   int res_id,std_id,ex_id,status;
      Double score;
-   String date,res_date;
+   String result_dt,res_date;
+
+     public String getResult_dt() {
+          return result_dt;
+     }
+
+     public void setResult_dt(String result_dt) {
+          this.result_dt = result_dt;
+     }
      public int getStatus() {
           return status;
      }
@@ -20,7 +28,6 @@ public class Results_Dt {
      public void setStatus(int status) {
           this.status = status;
      }
-   
 
      public String getRes_date() {
           return res_date;
@@ -60,22 +67,6 @@ public class Results_Dt {
 
     public void setEx_id(int ex_id) {
         this.ex_id = ex_id;
-    }
-
-    public int getSub_id() {
-        return sub_id;
-    }
-
-    public void setSub_id(int sub_id) {
-        this.sub_id = sub_id;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
     }
    
 }
